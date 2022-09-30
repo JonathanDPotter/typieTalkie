@@ -1,20 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import Header from "./components/Header/Header";
+import Router from "./components/Router";
+import SocketProvider from "./context/socket.context";
+import UserProvider from "./context/user.context";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <UserProvider>
+      <SocketProvider>
+        <Header/>
+        <Router />
+      </SocketProvider>
+    </UserProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
